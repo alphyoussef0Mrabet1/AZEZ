@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <link rel="stylesheet" href="index.css">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div class="per-haede">
+    <a href="/index.html"><img src="/img/american wolf logo.jpg" alt=""></a> 
+    <div class="search-bar">
+        <input type="text" id="productSearch" placeholder="Rechercher produit..." onkeyup="searchProducts()">
+    </div>
+    
+    <a href="/cart.html" class="view-cart-btn"><i class="fa-solid fa-cart-shopping"></i></a>
+    
+    </div>
+    <div class="nav">
+      <input type="checkbox" id="nav-check">
+      <div class="nav-header">
+      </div>
+      <div class="nav-btn">
+        <label for="nav-check">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+      </div>
+      
+      <div class="nav-links">
+        <a href="#">Accueil</a>
+        <a href="#">boutique</a>
+        <a href="#">blog</a>
+        <a href="#">nous-contacter</a>
+        <a href="#">Cart</a>
+      </div>
+    </div>
+
+
+
+
+
+
+    <div id="cart">
+      <h2>Cart</h2>
+      <ul id="cart-items"></ul>
+      <p id="total-price">Total: $0</p>
+    </div>
+    
+
+
+<script src="/index.js"></script>
+</body>
+</html>

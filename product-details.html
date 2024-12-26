@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/proimg/css/pro.css">
+  <link rel="stylesheet" href="/index.css">
+  <title>Product Details</title>
+</head>
+<body>
+
+  <div class="per-haede">
+    <a href="/index.html"><img src="/img/american wolf logo.jpg" alt=""></a>
+    <div class="search-bar">
+        <input type="text" id="productSearch" placeholder="Rechercher produit..." onkeyup="searchProducts()">
+    </div>
+    
+    <a href="/cart.html" class="view-cart-btn">
+
+        <i class="fa-solid fa-cart-shopping"> </i>
+      </div>
+    </a>
+    
+    </div>
+    <div class="nav">
+      <input type="checkbox" id="nav-check">
+      <div class="nav-header">
+      </div>
+      <div class="nav-btn">
+        <label for="nav-check">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+      </div>
+      
+      <div class="nav-links">
+        <a href="#">Accueil</a>
+        <a href="/boutique.html">boutique</a>
+        <a href="#">blog</a>
+        <a href="#">nous-contacter</a>
+        <a href="#">Cart</a>
+      </div>
+    </div>
+
+
+
+  <div id="product-details" class="product-details-container">
+    <img id="product-image" src="" alt="Product Image" class="product-image">
+    <h1 id="product-title"></h1>
+    <p id="product-description"></p>
+    <p id="product-price"></p>
+    <button id="add-to-cart">Add to Cart</button>
+  </div>
+
+
+
+
+
+<div>
+  <div class="descreption">
+
+    <h3>descreption</h3>
+    <p>
+      Le lactosérum est produit lors de la coagulation du lait durant le début du processus de production des fromages. Il contient tout ce qui est soluble dans le lait après que le pH soit tombé à 4,6 pendant le processus de coagulation 2. C’est une solution d’eau à 5 % de lactose, qui contient aussi des minéraux et de la lactalbumine 3.
+
+      La matière grasse résiduelle est séparée et réutilisée pour l'alimentation humaine 3 ou animale. Le produit est ensuite transformé par simple séchage, ou la teneur en protéines en est augmentée en éliminant les lipides et d'autres matériaux non-protéiques 4.
+      
+      À titre d’exemple un séchage par atomisation après filtration sur membrane permet de séparer les protéines du reste du lactosérum 5. Les protéines du lactosérum peuvent être dénaturées par la chaleur (en particulier avec les 72 °C associés au processus de pasteurisation), ce qui déclenche des interactions hydrophobes avec d'autres protéines et la formation d'un gel de protéine4. Un lactosérum dénaturé par la chaleur peut encore provoquer des allergies chez certaines personnes 6.
+      
+      Dix litres de lait de vache permettent de produire 1 kg de fromage et 9 l de lactosérum (soit 600 g de lactosérum en poudre).
+    </p>
+  </div>
+
+
+</div>
+
+
+
+
+
+  <script>
+    // Load product details from localStorage
+    const productDetails = JSON.parse(localStorage.getItem("productDetails"));
+
+    if (productDetails) {
+      document.getElementById("product-title").textContent = productDetails.product;
+      document.getElementById("product-description").textContent = productDetails.description;
+      document.getElementById("product-price").textContent = `Price: ${productDetails.price} DT`;
+      document.getElementById("product-image").src = productDetails.image;
+    } else {
+      // Redirect to home if no product details are found
+      alert("No product details available!");
+      window.location.href = "/index.html";
+    }
+
+    // Handle "Add to Cart" button
+    document.getElementById("add-to-cart").addEventListener("click", () => {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push({
+        product: productDetails.product,
+        price: parseFloat(productDetails.price),
+      });
+
+      // Save the updated cart to localStorage
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(`${productDetails.product} added to cart!`);
+    });
+  </script>
+</body>
+</html>
